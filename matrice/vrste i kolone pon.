@@ -1,0 +1,62 @@
+#include<stdio.h>
+
+int main(){
+    
+    int mat[100][100];
+    
+    int p;
+    int br;
+    int koji;
+    
+    scanf("%d", &p);
+    
+    for(int i = 0; i < p; i++){
+        for(int j = 0; j < p; j++){
+            scanf("%d", &mat[i][j]);
+        }
+    }
+    
+    for(int i = 0; i < p; i++){
+        for(int j = 0; j < p; j++){
+            
+            
+            
+            for(int m = j; m < p; m++){
+                    if(mat[i][j] == mat[i][m]){
+                        br++;
+                        koji = mat[i][j];
+                    }
+                    
+                
+            }
+            if(br > 1){
+                printf("Red %d - Broj %d \n", i, koji);
+              
+            }
+            br = 0;
+        }
+        
+    }
+    
+    for(int i = 0; i < p; i++){
+        for(int j = 0; j < p; j++){
+            
+            
+            
+            for(int m = i; m < p; m++){
+                    if(mat[i][j] == mat[m][j]){
+                        br++;
+                        koji = mat[i][j];
+                    }
+                    
+                
+            }
+            if(br > 1){
+                printf("Kolona %d - Broj %d \n", j, koji);
+              
+            }
+            br = 0;
+        }
+        
+    }
+}
