@@ -1,0 +1,82 @@
+#include<stdio.h>
+#include<limits.h>
+    
+int main(){
+    int mat[100][100];
+    
+    int n;
+    int br = 0;
+    int max = 4;
+    int maxvr;
+    scanf("%d", &n);
+    
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            scanf("%d", &mat[i][j]);
+        }
+    }
+    
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            for(int m = j; m < n; m++){
+                if(mat[i][j] == mat[i][m]){
+                    br++;
+                }
+            }
+            if(br > max){
+                max = br;
+            }
+        }
+        br = 0;
+    }
+    printf("Vrsta sa najvise jednakih: ");
+    
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            for(int m = j; m < n; m++){
+                if(mat[i][j] == mat[i][m]){
+                    br++;
+                }
+            }
+            if(br == max){
+               printf("%d ", i);
+            }
+        }
+        br = 0;
+    }
+    
+    printf("\n");
+    
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            for(int m = j; m < n; m++){
+                if(mat[i][j] == mat[m][j]){
+                    br++;
+                }
+            }
+            if(br > max){
+                max = br;
+            }
+        }
+        br = 0;
+    }
+    printf("Kolona sa najvise jednakih: ");
+    
+    for(int j = 0; j < n; j++){
+        for(int i = 0; i < n; i++){
+            for(int m = i; m < n; m++){
+                if(mat[i][j] == mat[m][j]){
+                    br++;
+                }
+            }
+            if(br == max){
+               printf("%d ", j);
+            }
+        }
+        br = 0;
+    }
+    
+    
+    
+    
+}
