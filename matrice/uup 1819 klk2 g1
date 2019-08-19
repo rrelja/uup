@@ -1,0 +1,62 @@
+#include<stdio.h>
+#include<limits.h>
+
+int main(){
+    int n;
+    int mat[100][100];
+    int min = INT_MAX;
+    int max = INT_MIN;
+    int ponMAX;
+    int ponMIN;
+    scanf("%d", &n);
+    
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            scanf("%d", &mat[i][j]);
+        }
+    }
+    
+    for(int i = 0; i < n; i++){
+        max = INT_MIN;
+        ponMAX = 0;
+        for(int j = 0; j < n; j++){
+                if(mat[i][j] % 2 != 0 && mat[i][j] > max){
+                        max = mat[i][j];
+                        ponMAX = 1;
+                }
+                else if(mat [i][j] == max){
+                    ponMAX++;
+                }
+            
+        
+          }
+          if(ponMAX != 0){
+              printf("Red %d: %d %d\n", i+1, max, ponMAX);
+          }
+          
+    }
+    
+    for(int j = 0; j < n; j++){
+        min = INT_MAX;
+        ponMIN = 0;
+        for(int i = 0; i < n; i++){
+                if(mat[i][j] % 2 == 0 && mat[i][j] < min){
+                        min = mat[i][j];
+                        ponMIN = 1;
+                }
+                else if(mat [i][j] == min){
+                    ponMIN++;
+                }
+            
+        
+          }
+          if(ponMIN != 0){
+              printf("Kolona %d: %d %d\n", j+1, min, ponMIN);
+          }
+          
+    }
+    
+    }
+    
+    
+    
