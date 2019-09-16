@@ -1,0 +1,36 @@
+//uup okt 18 g2
+
+#include<stdio.h>
+#include<string.h>
+
+int main(){
+    char* token[100];
+    char stari[100];
+    char novi[100]="";
+    
+    int i, j, n;
+    
+    gets(stari);
+    
+    token[0] = strtok(stari, " ");
+    
+    for(i = 1; (token[i] = strtok(NULL, " ")) != NULL; i++);
+    
+    n = i;
+    
+    for(i = 0; i < n-1; i++){
+        if(*token){
+            
+                if(strcmp(token[i], token[i+1]) != 0){
+                    strcat(novi, token[i]);
+                    strcat(novi, " ");
+                }
+            
+        
+       
+            
+        }
+    }
+    strcat(novi, token[n-1]);
+    printf("%s", novi);
+}
