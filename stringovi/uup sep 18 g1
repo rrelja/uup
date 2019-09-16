@@ -1,0 +1,21 @@
+//uup sep 18 g1
+
+#include<stdio.h>
+#include<string.h>
+
+int main(){
+    char stari[100];
+    char novi[100] = "";
+    gets(stari);
+int pr = 0;
+    for(int i = 0; i < strlen(stari); i++){
+        if(stari[i] == stari[i+1]){
+            novi[pr+i] = stari[i];
+        }else {
+            novi[i+pr] = stari[i];
+            novi[i+pr+1] = '-';
+            pr++;
+        }
+    }
+    printf("%s", novi);
+}
