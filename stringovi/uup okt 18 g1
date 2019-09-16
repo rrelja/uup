@@ -1,0 +1,38 @@
+#include<stdio.h>
+#include<string.h>
+
+int main(){
+    char* token[100];
+    char stari[100];
+    char novi[100]="";
+    
+    gets(stari);
+    
+    token[0] = strtok(stari, "-");
+    int i, j, n, m, count;    
+    for(i = 1; (token[i] = strtok(NULL, "-")) != NULL; i++);
+    
+    n = i;
+    
+    for(i = 0; i < n; i++){
+        count = 0;
+        if(*token){
+            
+            for(j = 0; j < strlen(token[i]); j++){
+                for(m = j+1; m < strlen(token[i]); m++){
+                if(token[i][j] == token[i][m]){
+                    count++;
+                }
+                }
+            }
+            if(count == 0){
+                strcat(novi, token[i]);
+                if(i != n-1){
+                strcat(novi, "-");
+                }
+            }
+        }
+    }
+    
+    printf("%s", novi);
+}
